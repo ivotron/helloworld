@@ -1,0 +1,14 @@
+name: build
+on: [push, pull_request]
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+    - name: check out code
+      uses: actions/checkout@v2
+
+    - uses: chrislennon/action-drone@v1
+      with:
+        version: 1.2.4
+
+    - run: drone exec --pipeline build-rpk
