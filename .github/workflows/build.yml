@@ -8,4 +8,5 @@ jobs:
       uses: actions/checkout@v2
 
     - uses: docker://drone/cli:1.2.4
-      run: exec
+      with:
+        args: exec
