@@ -7,8 +7,5 @@ jobs:
     - name: check out code
       uses: actions/checkout@v2
 
-    - uses: chrislennon/action-drone@v1
-      with:
-        version: 1.2.4
-
-    - run: drone exec --pipeline build-rpk
+    - uses: docker://drone/cli:1.2.4
+      args: exec
