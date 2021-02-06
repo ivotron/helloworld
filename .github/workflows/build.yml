@@ -6,5 +6,9 @@ jobs:
     steps:
     - name: check out code
       uses: actions/checkout@v2
-
-    - run: docker run -v $PWD:$PWD -w $PWD drone/cli:1.2.4 exec
+    - run: |
+        docker run \
+          -v /var/run/docker.sock:/var/run/docker.sock \
+          -v $PWD:$PWD \
+          -w $PWD \
+          drone/cli:1.2.4 exec
