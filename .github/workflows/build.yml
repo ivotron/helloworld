@@ -7,6 +7,4 @@ jobs:
     - name: check out code
       uses: actions/checkout@v2
 
-    - uses: docker://drone/cli:1.2.4
-      with:
-        args: exec
+    - run: docker run -v $PWD:$PWD -w $PWD drone/cli:1.2.4 exec
